@@ -2,8 +2,8 @@
   "name": "format-code-in-string",
   "displayName": "format-code-in-string",
   "description": "格式化在字符串里的HTML或CSS代码片段.",
-  "license": "MIT",  
-  "version": "1.0.0",
+  "license": "MIT",
+  "version": "1.0.1",
   "author": "HarlenHua <narlenhua@qq.com>",
   "repository": "https://github.com/NarlenHua/format-code-in-string.git",
   "engines": {
@@ -12,8 +12,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -26,17 +25,15 @@
         "title": "以css格式化"
       },
       {
-        "command": "format-code-in-string.format-cycle",
-        "title": "以html或css格式化"
+        "command": "format-code-in-string.format-as-ts",
+        "title": "以ts格式化"
+      },
+      {
+        "command": "format-code-in-string.minify-string",
+        "title": "压缩html、css、js、url"
       }
     ],
     "keybindings": [
-      {
-        "command": "format-code-in-string.format-cycle",
-        "key": "alt+f",
-        "mac": "alt+f",
-        "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')"
-      },
       {
         "command": "format-code-in-string.format-as-html",
         "key": "alt+h",
@@ -48,15 +45,22 @@
         "key": "alt+c",
         "mac": "alt+c",
         "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')"
+      },
+      {
+        "command": "format-code-in-string.format-as-ts",
+        "key": "alt+t",
+        "mac": "alt+t",
+        "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')"
+      },
+      {
+        "command": "format-code-in-string.minify-string",
+        "key": "alt+m",
+        "mac": "alt+m",
+        "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')"
       }
     ],
     "menus": {
       "editor/context": [
-        {
-          "command": "format-code-in-string.format-cycle",
-          "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
-          "group": "navigation"
-        },
         {
           "command": "format-code-in-string.format-as-html",
           "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
@@ -64,6 +68,16 @@
         },
         {
           "command": "format-code-in-string.format-as-css",
+          "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
+          "group": "navigation"
+        },
+                {
+          "command": "format-code-in-string.format-as-ts",
+          "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
+          "group": "navigation"
+        },
+        {
+          "command": "format-code-in-string.minify-string",
           "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
           "group": "navigation"
         }
@@ -79,6 +93,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
+    "@types/html-minifier": "^4.0.5",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
     "@types/vscode": "^1.54.0",
@@ -90,6 +105,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "html-minifier": "^4.0.0",
     "prettier": "^3.6.2"
   }
 }
