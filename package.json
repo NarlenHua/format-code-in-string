@@ -5,7 +5,7 @@
   "license": "MIT",  
   "version": "1.0.0",
   "author": "HarlenHua <narlenhua@qq.com>",
-  "repository": {},
+  "repository": "https://github.com/NarlenHua/format-code-in-string.git",
   "engines": {
     "vscode": "^1.54.0"
   },
