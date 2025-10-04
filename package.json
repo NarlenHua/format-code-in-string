@@ -1,0 +1,95 @@
+{
+  "name": "format-code-in-string",
+  "displayName": "format-code-in-string",
+  "description": "格式化在字符串里的HTML或CSS代码片段.",
+  "license": "MIT",  
+  "version": "1.0.0",
+  "author": "HarlenHua <narlenhua@qq.com>",
+  "repository": {},
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "format-code-in-string.format-as-html",
+        "title": "以html格式化"
+      },
+      {
+        "command": "format-code-in-string.format-as-css",
+        "title": "以css格式化"
+      },
+      {
+        "command": "format-code-in-string.format-cycle",
+        "title": "以html或css格式化"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "format-code-in-string.format-cycle",
+        "key": "alt+f",
+        "mac": "alt+f",
+        "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')"
+      },
+      {
+        "command": "format-code-in-string.format-as-html",
+        "key": "alt+h",
+        "mac": "alt+h",
+        "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')"
+      },
+      {
+        "command": "format-code-in-string.format-as-css",
+        "key": "alt+c",
+        "mac": "alt+c",
+        "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "format-code-in-string.format-cycle",
+          "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
+          "group": "navigation"
+        },
+        {
+          "command": "format-code-in-string.format-as-html",
+          "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
+          "group": "navigation"
+        },
+        {
+          "command": "format-code-in-string.format-as-css",
+          "when": "editorTextFocus && editorHasSelection && (resourceExtname == '.html' || resourceExtname == '.ts' || resourceExtname == '.js')",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.54.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "prettier": "^3.6.2"
+  }
+}
