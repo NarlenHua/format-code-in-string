@@ -1,10 +1,12 @@
 {
   "name": "format-code-in-string",
   "displayName": "format-code-in-string",
-  "description": "格式化在字符串里的HTML或CSS代码片段.",
+  "description": "格式化或压缩在字符串里的前端代码片段.",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "HarlenHua <narlenhua@qq.com>",
+  "publisher": "NarlenHua",
+  "icon": "icon.png",
   "repository": "https://github.com/NarlenHua/format-code-in-string.git",
   "engines": {
     "vscode": "^1.54.0"
